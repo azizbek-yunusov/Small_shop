@@ -1,13 +1,107 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+.content {
+  min-height: calc(100vh - 290px);
+  /* min-height: calc(100vh - 321px); */
+}
+.loading {
+  display: flex;
+}
+.loading .dot {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  margin: 0.8em;
+  border-radius: 50%;
+}
+.loading .dot::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: inherit;
+  animation: wave 1s ease-out infinite;
+}
+.loading .dot:nth-child(1) {
+  background: #7ef9ff;
+}
+.loading .dot:nth-child(1)::before {
+  animation-delay: 0.1s;
+}
+.loading .dot:nth-child(2) {
+  background: #89cff0;
+}
+.loading .dot:nth-child(2)::before {
+  animation-delay: 0.2s;
+}
+.loading .dot:nth-child(3) {
+  background: #4682b4;
+}
+.loading .dot:nth-child(3)::before {
+  animation-delay: 0.3s;
+}
+.loading .dot:nth-child(4) {
+  background: #0f52ba;
+}
+.loading .dot:nth-child(4)::before {
+  animation-delay: 0.4s;
+}
+.loading .dot:nth-child(5) {
+  background: #000080;
+}
+.loading .dot:nth-child(5)::before {
+  animation-delay: .5s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes wave {
+  50%, 75% {
+    transform: scale(2.5);
+  }
+  80%, 100% {
+    opacity: 0;
+  }
 }
+.basket {
+  animation: show .4s ease-in-out ;
+}
+.deletepro {
+  animation: delete .8s ease-in-out;
+}
+.basketShowlist {
+  animation: list .4s ease-in-out;
+}
+@keyframes list {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes delete {
+  from {
+    opacity: 0;
+
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
